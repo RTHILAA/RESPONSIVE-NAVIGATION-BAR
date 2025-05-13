@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #ffffff1a;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+  -webkit-animation: fadeIn 0.5s ease-in-out;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.header:hover::before {
+  left: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 10vh;
+  margin: auto;
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-bar ul {
+  font-weight: bold;
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-bar ul li a {
+  font-size: 3vh;
+  position: relative;
+}
+
+.nav-bar ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: white;
+  bottom: -1px;
+  left: 0;
+  transition: width 0.5s ease;
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -ms-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+}
+
+.nav-bar ul li a:hover::after {
+  width: 100%;
+  /* Underline expands on hover */
+}
+
+.nav-bar ul li a:hover {
+  color: #ff0000;
+  /* Change link color on hover */
+}
+
+.nav-bar h2 {
+  font-size: 4vh;
+}
+
+#bars i {
+  display: none;
+  font-size: 4vh;
+  transition: transform 0.3s ease;
+  /* Smooth transition for menu icons */
+}
+
+#bars i:hover {
+  color: red;
+  /* Change icon color on hover */
+}
+
+/* Responsive Media Queries */
+
+/* For medium-sized screens (950px to 1150px) */
+@media (min-width: 950px) and (max-width: 1150px) {
+  .nav-bar ul {
+    gap: 20px;
+    /* Reduce gap between navigation items */
+  }
+
+  .nav-bar ul li a {
+    font-size: 2.5vh;
+    /* Reduce navigation font size */
+  }
+
+  .nav-bar h2 {
+    font-size: 3.5vh;
+    /* Reduce heading size */
+  }
+}
+
+/* For smaller screens (up to 950px) */
+@media (max-width: 950px) {
+  .nav-bar ul {
+    display: none;
+    /* Hide navigation links by default */
+    flex-direction: column;
+    /* Switch to vertical layout */
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255,
+        255,
+        255,
+        0.1);
+    /* Semi-transparent background */
+    /* Apply blur effect */
+    padding: 20px 0;
+    gap: 15px;
+    align-items: center;
+    animation: slideDown 0.5s ease-in-out;
+    /* Slide-down animation for mobile menu */
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+  #bars i {
+    display: block;
+    transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition: transform 0.5s ease-in-out;
+    -ms-transition: transform 0.5s ease-in-out;
+    -o-transition: transform 0.5s ease-in-out;
+  }
+
+
+  .nav-bar ul li a {
+    font-size: 2.5vh;
+    /* Reduce navigation font size */
+  }
+
+  .nav-bar h2 {
+    font-size: 3vh;
+    /* Reduce heading size */
+  }
+}
+
+/* For mobile devices (up to 480px) */
+@media (max-width: 480px) {
+  .nav-bar ul {
+    gap: 10px;
+    /* Further reduce gap between navigation items */
+  }
+
+  .nav-bar ul li a {
+    font-size: 2vh;
+    /* Further reduce navigation font size */
+  }
+
+  .nav-bar h2 {
+    font-size: 2.5vh;
+    /* Further reduce heading size */
+  }
+
+  #bars i {
+    font-size: 3.5vh;
+    /* Reduce hamburger menu icon size */
+  }
+}
